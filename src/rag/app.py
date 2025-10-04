@@ -104,7 +104,7 @@ def process_query(query, rag, top_k, filter_metadata):
 
 def main():
     # Header
-    st.markdown('<h1 class="main-header">🤖 LLM Document Q&A System</h1>', unsafe_allow_html=True)
+    st.markdown('<h1 class="main-header">LLM Document Q&A System</h1>', unsafe_allow_html=True)
     st.markdown("### Ask questions about Indian government data on plantations and highways")
 
     # Sidebar
@@ -143,7 +143,7 @@ def main():
         st.subheader("ℹ️ About")
         st.info("""
         This system uses:
-        - **Google Gemini 1.5 Flash** for answers
+        - **Google Gemini 2.5 Flash** for answers
         - **text-embedding-004** for search
         - **ChromaDB** for vector storage
         - **RAG** for accurate responses
