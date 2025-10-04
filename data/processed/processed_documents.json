@@ -1,0 +1,272 @@
+[
+  {
+    "content": "State: Andhra Pradesh. Plantation Data from 2015-2024:. Cumulative plantation for 2015-16 to 2017-18: 6.34 lakh trees. Total plantation in 2020: 3.01 lakh trees. Total plantation in 2021: 1.67 lakh trees. Total plantation in 2022: 1.58 lakh trees. Total plantation in 2023: 1.14 lakh trees. Total plantation in 2024: 2.11 lakh trees. Total plantation progress from 2015-16 to 2023-24: 22.12 lakh trees.",
+    "metadata": {
+      "source": "plantation_data.csv",
+      "state": "Andhra Pradesh",
+      "type": "plantation_statistics",
+      "processed_date": "2025-10-04T11:43:28.660047"
+    }
+  },
+  {
+    "content": "State: Assam. Plantation Data from 2015-2024:. Cumulative plantation for 2015-16 to 2017-18: 1.01 lakh trees. Total plantation in 2020: 2.46 lakh trees. Total plantation in 2021: 1.73 lakh trees. Total plantation in 2022: 0.89 lakh trees. Total plantation in 2023: 0.85 lakh trees. Total plantation in 2024: 0.27 lakh trees. Total plantation progress from 2015-16 to 2023-24: 7.98 lakh trees.",
+    "metadata": {
+      "source": "plantation_data.csv",
+      "state": "Assam",
+      "type": "plantation_statistics",
+      "processed_date": "2025-10-04T11:43:28.660047"
+    }
+  },
+  {
+    "content": "State: Bihar. Plantation Data from 2015-2024:. Cumulative plantation for 2015-16 to 2017-18: 1.62 lakh trees. Total plantation in 2020: 0.72 lakh trees. Total plantation in 2021: 2.03 lakh trees. Total plantation in 2022: 2.12 lakh trees. Total plantation in 2023: 2.38 lakh trees. Total plantation in 2024: 3.29 lakh trees. Total plantation progress from 2015-16 to 2023-24: 13.73 lakh trees.",
+    "metadata": {
+      "source": "plantation_data.csv",
+      "state": "Bihar",
+      "type": "plantation_statistics",
+      "processed_date": "2025-10-04T11:43:28.660047"
+    }
+  },
+  {
+    "content": "State: Chhattisgarh. Plantation Data from 2015-2024:. Cumulative plantation for 2015-16 to 2017-18: 2.02 lakh trees. Total plantation in 2020: 1.18 lakh trees. Total plantation in 2021: 1.02 lakh trees. Total plantation in 2022: 1.33 lakh trees. Total plantation in 2023: 1.17 lakh trees. Total plantation in 2024: 0.99 lakh trees. Total plantation progress from 2015-16 to 2023-24: 9.11 lakh trees.",
+    "metadata": {
+      "source": "plantation_data.csv",
+      "state": "Chhattisgarh",
+      "type": "plantation_statistics",
+      "processed_date": "2025-10-04T11:43:28.661047"
+    }
+  },
+  {
+    "content": "State: Delhi. Plantation Data from 2015-2024:. Cumulative plantation for 2015-16 to 2017-18: 0.5 lakh trees. Total plantation in 2020: 2.13 lakh trees. Total plantation in 2021: 9.5 lakh trees. Total plantation in 2022: 3.44 lakh trees. Total plantation in 2023: 3.6 lakh trees. Total plantation in 2024: 8.95 lakh trees. Total plantation progress from 2015-16 to 2023-24: 33.65 lakh trees.",
+    "metadata": {
+      "source": "plantation_data.csv",
+      "state": "Delhi",
+      "type": "plantation_statistics",
+      "processed_date": "2025-10-04T11:43:28.661047"
+    }
+  },
+  {
+    "content": "State: Gujarat. Plantation Data from 2015-2024:. Cumulative plantation for 2015-16 to 2017-18: 4.96 lakh trees. Total plantation in 2020: 2.78 lakh trees. Total plantation in 2021: 2.38 lakh trees. Total plantation in 2022: 4.51 lakh trees. Total plantation in 2023: 3.69 lakh trees. Total plantation in 2024: 4.86 lakh trees. Total plantation progress from 2015-16 to 2023-24: 24.88 lakh trees.",
+    "metadata": {
+      "source": "plantation_data.csv",
+      "state": "Gujarat",
+      "type": "plantation_statistics",
+      "processed_date": "2025-10-04T11:43:28.661047"
+    }
+  },
+  {
+    "content": "State: Haryana. Plantation Data from 2015-2024:. Cumulative plantation for 2015-16 to 2017-18: 6.46 lakh trees. Total plantation in 2020: 2.52 lakh trees. Total plantation in 2021: 1.59 lakh trees. Total plantation in 2022: 2.19 lakh trees. Total plantation in 2023: 2.98 lakh trees. Total plantation in 2024: 5.59 lakh trees. Total plantation progress from 2015-16 to 2023-24: 25.87 lakh trees.",
+    "metadata": {
+      "source": "plantation_data.csv",
+      "state": "Haryana",
+      "type": "plantation_statistics",
+      "processed_date": "2025-10-04T11:43:28.661047"
+    }
+  },
+  {
+    "content": "State: Himachal Pradesh. Plantation Data from 2015-2024:. Cumulative plantation for 2015-16 to 2017-18: 0.16 lakh trees. Total plantation in 2020: 0.68 lakh trees. Total plantation in 2021: 0.71 lakh trees. Total plantation in 2022: 0.82 lakh trees. Total plantation in 2023: 0.32 lakh trees. Total plantation in 2024: 0.61 lakh trees. Total plantation progress from 2015-16 to 2023-24: 3.61 lakh trees.",
+    "metadata": {
+      "source": "plantation_data.csv",
+      "state": "Himachal Pradesh",
+      "type": "plantation_statistics",
+      "processed_date": "2025-10-04T11:43:28.661047"
+    }
+  },
+  {
+    "content": "State: Jammu and Kashmir. Plantation Data from 2015-2024:. Cumulative plantation for 2015-16 to 2017-18: 0.41 lakh trees. Total plantation in 2020: 0.13 lakh trees. Total plantation in 2021: 0.42 lakh trees. Total plantation in 2022: 0.86 lakh trees. Total plantation in 2023: 0.76 lakh trees. Total plantation in 2024: 0.8 lakh trees. Total plantation progress from 2015-16 to 2023-24: 3.82 lakh trees.",
+    "metadata": {
+      "source": "plantation_data.csv",
+      "state": "Jammu and Kashmir",
+      "type": "plantation_statistics",
+      "processed_date": "2025-10-04T11:43:28.661047"
+    }
+  },
+  {
+    "content": "State: Jharkhand. Plantation Data from 2015-2024:. Cumulative plantation for 2015-16 to 2017-18: 1.32 lakh trees. Total plantation in 2020: 1.16 lakh trees. Total plantation in 2021: 2.53 lakh trees. Total plantation in 2022: 1.07 lakh trees. Total plantation in 2023: 0.92 lakh trees. Total plantation in 2024: 1.01 lakh trees. Total plantation progress from 2015-16 to 2023-24: 9.13 lakh trees.",
+    "metadata": {
+      "source": "plantation_data.csv",
+      "state": "Jharkhand",
+      "type": "plantation_statistics",
+      "processed_date": "2025-10-04T11:43:28.661047"
+    }
+  },
+  {
+    "content": "National Highway Funds Information: StateUT-wise Details of Funds Allocated and Expenditure incurred towards Development and Maintenance of National Highways from 2023-24 to 2024-25. StateUT: Andhra Pradesh. Allocated budget for 2023-24: Rs 11440 Crore. Expenditure for 2023-24: Rs 11440 Crore. Allocated budget for 2024-25: Rs 6721 Crore. Expenditure for 2024-25: Rs 5797 Crore.",
+    "metadata": {
+      "source": "highway_funds.xml",
+      "state": "Andhra Pradesh",
+      "type": "highway_funds",
+      "processed_date": "2025-10-04T11:43:28.662045"
+    }
+  },
+  {
+    "content": "National Highway Funds Information: StateUT-wise Details of Funds Allocated and Expenditure incurred towards Development and Maintenance of National Highways from 2023-24 to 2024-25. StateUT: Arunachal Pradesh. Allocated budget for 2023-24: Rs 2649 Crore. Expenditure for 2023-24: Rs 2649 Crore. Allocated budget for 2024-25: Rs 2287 Crore. Expenditure for 2024-25: Rs 628 Crore.",
+    "metadata": {
+      "source": "highway_funds.xml",
+      "state": "Arunachal Pradesh",
+      "type": "highway_funds",
+      "processed_date": "2025-10-04T11:43:28.662045"
+    }
+  },
+  {
+    "content": "National Highway Funds Information: StateUT-wise Details of Funds Allocated and Expenditure incurred towards Development and Maintenance of National Highways from 2023-24 to 2024-25. StateUT: Assam. Allocated budget for 2023-24: Rs 9137 Crore. Expenditure for 2023-24: Rs 9137 Crore. Allocated budget for 2024-25: Rs 3346 Crore. Expenditure for 2024-25: Rs 3144 Crore.",
+    "metadata": {
+      "source": "highway_funds.xml",
+      "state": "Assam",
+      "type": "highway_funds",
+      "processed_date": "2025-10-04T11:43:28.662045"
+    }
+  },
+  {
+    "content": "National Highway Funds Information: StateUT-wise Details of Funds Allocated and Expenditure incurred towards Development and Maintenance of National Highways from 2023-24 to 2024-25. StateUT: Bihar. Allocated budget for 2023-24: Rs 10749 Crore. Expenditure for 2023-24: Rs 10749 Crore. Allocated budget for 2024-25: Rs 5213 Crore. Expenditure for 2024-25: Rs 4517 Crore.",
+    "metadata": {
+      "source": "highway_funds.xml",
+      "state": "Bihar",
+      "type": "highway_funds",
+      "processed_date": "2025-10-04T11:43:28.662045"
+    }
+  },
+  {
+    "content": "National Highway Funds Information: StateUT-wise Details of Funds Allocated and Expenditure incurred towards Development and Maintenance of National Highways from 2023-24 to 2024-25. StateUT: Chhattisgarh. Allocated budget for 2023-24: Rs 4255 Crore. Expenditure for 2023-24: Rs 4255 Crore. Allocated budget for 2024-25: Rs 548 Crore. Expenditure for 2024-25: Rs 404 Crore.",
+    "metadata": {
+      "source": "highway_funds.xml",
+      "state": "Chhattisgarh",
+      "type": "highway_funds",
+      "processed_date": "2025-10-04T11:43:28.662045"
+    }
+  },
+  {
+    "content": "National Highway Funds Information: StateUT-wise Details of Funds Allocated and Expenditure incurred towards Development and Maintenance of National Highways from 2023-24 to 2024-25. StateUT: Goa. Allocated budget for 2023-24: Rs 620 Crore. Expenditure for 2023-24: Rs 620 Crore. Allocated budget for 2024-25: Rs 567 Crore. Expenditure for 2024-25: Rs 307 Crore.",
+    "metadata": {
+      "source": "highway_funds.xml",
+      "state": "Goa",
+      "type": "highway_funds",
+      "processed_date": "2025-10-04T11:43:28.662045"
+    }
+  },
+  {
+    "content": "National Highway Funds Information: StateUT-wise Details of Funds Allocated and Expenditure incurred towards Development and Maintenance of National Highways from 2023-24 to 2024-25. StateUT: Gujarat. Allocated budget for 2023-24: Rs 10900 Crore. Expenditure for 2023-24: Rs 10900 Crore. Allocated budget for 2024-25: Rs 4649 Crore. Expenditure for 2024-25: Rs 4455 Crore.",
+    "metadata": {
+      "source": "highway_funds.xml",
+      "state": "Gujarat",
+      "type": "highway_funds",
+      "processed_date": "2025-10-04T11:43:28.662045"
+    }
+  },
+  {
+    "content": "National Highway Funds Information: StateUT-wise Details of Funds Allocated and Expenditure incurred towards Development and Maintenance of National Highways from 2023-24 to 2024-25. StateUT: Haryana. Allocated budget for 2023-24: Rs 6062 Crore. Expenditure for 2023-24: Rs 6062 Crore. Allocated budget for 2024-25: Rs 2105 Crore. Expenditure for 2024-25: Rs 2068 Crore.",
+    "metadata": {
+      "source": "highway_funds.xml",
+      "state": "Haryana",
+      "type": "highway_funds",
+      "processed_date": "2025-10-04T11:43:28.662045"
+    }
+  },
+  {
+    "content": "National Highway Funds Information: StateUT-wise Details of Funds Allocated and Expenditure incurred towards Development and Maintenance of National Highways from 2023-24 to 2024-25. StateUT: Himachal Pradesh. Allocated budget for 2023-24: Rs 5175 Crore. Expenditure for 2023-24: Rs 5175 Crore. Allocated budget for 2024-25: Rs 2384 Crore. Expenditure for 2024-25: Rs 2107 Crore.",
+    "metadata": {
+      "source": "highway_funds.xml",
+      "state": "Himachal Pradesh",
+      "type": "highway_funds",
+      "processed_date": "2025-10-04T11:43:28.662045"
+    }
+  },
+  {
+    "content": "National Highway Funds Information: StateUT-wise Details of Funds Allocated and Expenditure incurred towards Development and Maintenance of National Highways from 2023-24 to 2024-25. StateUT: Jharkhand. Allocated budget for 2023-24: Rs 4599 Crore. Expenditure for 2023-24: Rs 4599 Crore. Allocated budget for 2024-25: Rs 2809 Crore. Expenditure for 2024-25: Rs 2630 Crore.",
+    "metadata": {
+      "source": "highway_funds.xml",
+      "state": "Jharkhand",
+      "type": "highway_funds",
+      "processed_date": "2025-10-04T11:43:28.662045"
+    }
+  },
+  {
+    "content": "National Highway Length Information: StateUT-wise Details of Length of National Highways (NHs) in the Country as on 30-06-2024. StateUT: Andhra Pradesh. Existing National Highway length as of June 30, 2024: 8683 kilometers.",
+    "metadata": {
+      "source": "highway_length.xml",
+      "state": "Andhra Pradesh",
+      "type": "highway_length",
+      "processed_date": "2025-10-04T11:43:28.662045"
+    }
+  },
+  {
+    "content": "National Highway Length Information: StateUT-wise Details of Length of National Highways (NHs) in the Country as on 30-06-2024. StateUT: Arunachal Pradesh. Existing National Highway length as of June 30, 2024: 4367 kilometers.",
+    "metadata": {
+      "source": "highway_length.xml",
+      "state": "Arunachal Pradesh",
+      "type": "highway_length",
+      "processed_date": "2025-10-04T11:43:28.662045"
+    }
+  },
+  {
+    "content": "National Highway Length Information: StateUT-wise Details of Length of National Highways (NHs) in the Country as on 30-06-2024. StateUT: Assam. Existing National Highway length as of June 30, 2024: 4077 kilometers.",
+    "metadata": {
+      "source": "highway_length.xml",
+      "state": "Assam",
+      "type": "highway_length",
+      "processed_date": "2025-10-04T11:43:28.662045"
+    }
+  },
+  {
+    "content": "National Highway Length Information: StateUT-wise Details of Length of National Highways (NHs) in the Country as on 30-06-2024. StateUT: Bihar. Existing National Highway length as of June 30, 2024: 6132 kilometers.",
+    "metadata": {
+      "source": "highway_length.xml",
+      "state": "Bihar",
+      "type": "highway_length",
+      "processed_date": "2025-10-04T11:43:28.662045"
+    }
+  },
+  {
+    "content": "National Highway Length Information: StateUT-wise Details of Length of National Highways (NHs) in the Country as on 30-06-2024. StateUT: Chandigarh. Existing National Highway length as of June 30, 2024: 15 kilometers.",
+    "metadata": {
+      "source": "highway_length.xml",
+      "state": "Chandigarh",
+      "type": "highway_length",
+      "processed_date": "2025-10-04T11:43:28.662045"
+    }
+  },
+  {
+    "content": "National Highway Length Information: StateUT-wise Details of Length of National Highways (NHs) in the Country as on 30-06-2024. StateUT: Chhattisgarh. Existing National Highway length as of June 30, 2024: 3620 kilometers.",
+    "metadata": {
+      "source": "highway_length.xml",
+      "state": "Chhattisgarh",
+      "type": "highway_length",
+      "processed_date": "2025-10-04T11:43:28.662045"
+    }
+  },
+  {
+    "content": "National Highway Length Information: StateUT-wise Details of Length of National Highways (NHs) in the Country as on 30-06-2024. StateUT: Delhi. Existing National Highway length as of June 30, 2024: 157 kilometers.",
+    "metadata": {
+      "source": "highway_length.xml",
+      "state": "Delhi",
+      "type": "highway_length",
+      "processed_date": "2025-10-04T11:43:28.662045"
+    }
+  },
+  {
+    "content": "National Highway Length Information: StateUT-wise Details of Length of National Highways (NHs) in the Country as on 30-06-2024. StateUT: Goa. Existing National Highway length as of June 30, 2024: 299 kilometers.",
+    "metadata": {
+      "source": "highway_length.xml",
+      "state": "Goa",
+      "type": "highway_length",
+      "processed_date": "2025-10-04T11:43:28.662045"
+    }
+  },
+  {
+    "content": "National Highway Length Information: StateUT-wise Details of Length of National Highways (NHs) in the Country as on 30-06-2024. StateUT: Gujarat. Existing National Highway length as of June 30, 2024: 8099 kilometers.",
+    "metadata": {
+      "source": "highway_length.xml",
+      "state": "Gujarat",
+      "type": "highway_length",
+      "processed_date": "2025-10-04T11:43:28.662045"
+    }
+  },
+  {
+    "content": "National Highway Length Information: StateUT-wise Details of Length of National Highways (NHs) in the Country as on 30-06-2024. StateUT: Haryana. Existing National Highway length as of June 30, 2024: 3394 kilometers.",
+    "metadata": {
+      "source": "highway_length.xml",
+      "state": "Haryana",
+      "type": "highway_length",
+      "processed_date": "2025-10-04T11:43:28.662045"
+    }
+  }
+]

@@ -1,0 +1,10 @@
+{
+  "total_documents": 30,
+  "by_source": {
+    "plantation_data.csv": 10,
+    "highway_funds.xml": 10,
+    "highway_length.xml": 10
+  },
+  "processing_time": "0:00:00.006999",
+  "timestamp": "2025-10-04T11:43:28.663045"
+}

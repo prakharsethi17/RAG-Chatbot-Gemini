@@ -24,11 +24,6 @@ chroma.sqlite3
 logs/
 *.log
 
-# Data files (Can be large)
-data/raw/*.csv
-data/raw/*.xml
-data/processed/*.json
-
 # OS files
 .DS_Store
 Thumbs.db
