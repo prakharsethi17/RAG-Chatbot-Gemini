@@ -15,12 +15,6 @@ venv/
 env/
 ENV/
 
-# Vector Store (Large files)
-vectorstore/
-*.db
-*.sqlite3
-chroma.sqlite3
-
 # Logs
 logs/
 *.log
