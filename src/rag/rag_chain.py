@@ -50,7 +50,7 @@ class RAGChain:
 
         # Initialize LLM
         self.model = genai.GenerativeModel('gemini-2.5-flash')
-        logger.info("Initialized Gemini 1.5 Flash model")
+        logger.info("Initialized Gemini 2.5 Flash model")
 
         # Setup vector store
         vectorstore_dir = Path(__file__).parent.parent.parent / 'vectorstore'

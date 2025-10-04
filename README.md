@@ -1,21 +1,21 @@
-# 🤖 LLM Document Q&A Pipeline
+# LLM Document Q&A Pipeline
 **End-to-End RAG System with Google Gemini API**
 
 A production-ready Document Question-Answering system demonstrating complete ML pipeline from data acquisition to interactive Q&A using Retrieval Augmented Generation (RAG).
 
 ---
 
-## 🎯 Project Overview
+## Project Overview
 
 This project showcases a complete LLM engineering pipeline with:
 - **Data Acquisition**: Automated download from Indian Government Open Data APIs  
 - **Multi-Format Processing**: CSV and XML parsing with robust error handling
 - **Embedding Generation**: Google Gemini text-embedding-004 (768-dimensional vectors)
 - **Vector Search**: ChromaDB for semantic similarity search
-- **LLM Integration**: Gemini 1.5 Flash for answer generation
+- **LLM Integration**: Gemini 2.5 Flash for answer generation
 - **Interactive UI**: Streamlit-based web interface with chat functionality
 
-### 📊 Data Sources
+### Data Sources
 - **Plantation Statistics**: State-wise tree plantation data (2015-2024) - 10 documents
 - **Highway Funds**: National highway budget allocation and expenditure (2023-2025) - 10 documents  
 - **Highway Length**: State-wise national highway length data (2024) - 10 documents
@@ -23,7 +23,7 @@ This project showcases a complete LLM engineering pipeline with:
 
 ---
 
-## 🚀 Quick Start (Windows)
+## Quick Start (Windows)
 
 ### Prerequisites
 - Python 3.9+ installed
@@ -85,7 +85,7 @@ The app will open at `http://localhost:8501`
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 llm-doc-qa-pipeline/
@@ -119,11 +119,11 @@ llm-doc-qa-pipeline/
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Component | Technology | Purpose |
 |-----------|------------|---------|
-| **LLM** | Google Gemini 1.5 Flash | Answer generation |
+| **LLM** | Google Gemini 2.5 Flash | Answer generation |
 | **Embeddings** | text-embedding-004 | Semantic search (768-dim) |
 | **Vector DB** | ChromaDB | Document storage & retrieval |
 | **Framework** | LangChain | RAG orchestration |
@@ -133,7 +133,7 @@ llm-doc-qa-pipeline/
 
 ---
 
-## 🎮 Features
+## Features
 
 ### Interactive Chat Interface
 - **ChatGPT-style UI** with conversation history
@@ -158,7 +158,7 @@ llm-doc-qa-pipeline/
 
 ---
 
-## 💡 Sample Queries
+## Sample Queries
 
 **Plantation Questions:**
 - "Which state has the highest plantation progress?"
@@ -177,7 +177,7 @@ llm-doc-qa-pipeline/
 
 ---
 
-## 🚨 Troubleshooting
+## Troubleshooting
 
 ### Common Issues
 
@@ -187,26 +187,15 @@ ERROR: GOOGLE_API_KEY not found
 ```
 **Solution:** Add your Gemini API key to `.env` file
 
-**Model Not Found Error**
-```
-404 models/gemini-1.5-flash is not found
-```
-**Solution:** Update model names in code:
-- Use `gemini-1.5-flash-latest` instead of `gemini-1.5-flash`
-- Use `text-embedding-004` instead of `models/embedding-004`
-
 **Vector Store Not Found**
 ```
 Vector store not found
 ```
 **Solution:** Complete Step 3 (embedding generation) first
 
-**Slow Performance**
-**Solution:** Reduce number of sources in UI sidebar (try 3 instead of 5)
-
 ---
 
-## 📈 Performance Metrics
+## Performance Metrics
 
 - **Documents**: 30 processed documents across 3 datasets
 - **Embedding Dimensions**: 768 (text-embedding-004)
@@ -216,25 +205,25 @@ Vector store not found
 
 ---
 
-## 🔧 Development
+## Development
 
 ### Requirements
 All dependencies are specified in `requirements.txt`:
 ```
-langchain==0.3.0
-langchain-google-genai==2.0.0
-chromadb==0.5.0
-streamlit==1.38.0
-pandas==2.2.2
-google-generativeai==0.8.0
-python-dotenv==1.0.1
+langchain
+langchain-google-genai
+chromadb
+streamlit
+pandas
+google-generativeai
+python-dotenv
 ```
 
 ### Environment Variables
 ```bash
 # .env file
 GOOGLE_API_KEY=your_gemini_api_key_here
-DATA_GOV_API_KEY=579b464db66ec23bdd0000015d47c06aac71457962b63b9874ea490a
+DATA_GOV_API_KEY=your_data_gov_in_api_key_here
 PROJECT_NAME=LLM Document Q&A Pipeline
 LOG_LEVEL=INFO
 ```
@@ -254,7 +243,7 @@ python src/rag/rag_chain.py
 
 ---
 
-## 🚀 Deployment
+## Deployment
 
 ### Local Development
 ```bash
@@ -269,7 +258,7 @@ streamlit run src/rag/app.py
 
 ### Docker (Optional)
 ```dockerfile
-FROM python:3.9-slim
+FROM python:3.11
 COPY . /app
 WORKDIR /app
 RUN pip install -r requirements.txt
@@ -284,50 +273,40 @@ CMD ["streamlit", "run", "src/rag/app.py"]
 This project demonstrates:
 
 **Technical Skills:**
-- ✅ End-to-end ML pipeline development
-- ✅ RAG architecture implementation  
-- ✅ Vector database integration
-- ✅ LLM API integration and prompt engineering
-- ✅ Multi-format data processing
-- ✅ Web application development
-- ✅ Production error handling and logging
+- End-to-end ML pipeline development
+- RAG architecture implementation  
+- Vector database integration
+- LLM API integration and prompt engineering
+- Multi-format data processing
+- Web application development
+- Production error handling and logging
 
 **Engineering Practices:**
-- ✅ Modular code architecture
-- ✅ Environment configuration management
-- ✅ Comprehensive documentation
-- ✅ Error handling and retry logic
-- ✅ Performance optimization
-- ✅ User experience design
+- Modular code architecture
+- Environment configuration management
+- Comprehensive documentation
+- Error handling and retry logic
+- Performance optimization
+- User experience design
 
 ---
 
-## 📝 License
+## License
 
 MIT License - Free for personal and commercial use
 
 ---
 
-## 👤 Author
+## Author
 
-**Your Name**
-- GitHub: [@yourusername](https://github.com/yourusername)
-- LinkedIn: [linkedin.com/in/yourprofile](https://linkedin.com/in/yourprofile)  
-- Email: your.email@example.com
-
----
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit changes (`git commit -m 'Add amazing feature'`)
-4. Push to branch (`git push origin feature/amazing-feature`) 
-5. Open a Pull Request
+**Prakhar Sethi**
+- GitHub: [@prakharsethi17](https://github.com/prakharsethi17)
+- LinkedIn: [linkedin.com/in/prakhar17/](https://www.linkedin.com/in/prakhar17/)  
+- Email: prakhar.robotics@gmail.com
 
 ---
 
-## 🌟 Acknowledgments
+## Acknowledgments
 
 - **Google Gemini API** for free tier access
 - **India Government Open Data Platform** for public datasets
@@ -337,12 +316,10 @@ MIT License - Free for personal and commercial use
 
 ---
 
-## 📞 Support
+## Support
 
 If you encounter issues:
 1. Check the troubleshooting section above
 2. Review logs in the `logs/` directory  
 3. Open an issue on GitHub
 4. Contact via email for urgent matters
-
-**Happy coding!** 🚀
