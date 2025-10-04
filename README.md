@@ -3,7 +3,7 @@
 
 A production-ready Document Question-Answering system demonstrating complete ML pipeline from data acquisition to interactive Q&A using Retrieval Augmented Generation (RAG).
 
-## 🚀 Live Demo
+## Live Demo
 
 **Try it now:** [https://rag-chatbot-gemini-ps.streamlit.app/](https://rag-chatbot-gemini-ps.streamlit.app/)
 
