@@ -1,0 +1,32 @@
+# LLM Document Q&A Pipeline - Dependencies
+
+# Core Dependencies
+langchain
+langchain-google-genai
+langchain-community
+
+# Vector Store
+chromadb
+faiss-cpu
+
+# Data Processing
+pandas
+numpy
+requests
+beautifulsoup4
+lxml
+
+# Document Loaders
+pypdf
+python-docx
+openpyxl
+
+# UI Framework
+streamlit
+
+# Utilities
+python-dotenv
+tqdm
+
+# Google Gemini
+google-generativeai

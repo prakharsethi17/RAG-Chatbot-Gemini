@@ -1,0 +1,23 @@
+[
+  {
+    "filename": "plantation_data.csv",
+    "url": "https://api.data.gov.in/resource/c1ec0057-7de4-4669-8d97-f72b01846d83?api-key=579b464db66ec23bdd0000015d47c06aac71457962b63b9874ea490a&format=csv",
+    "size_bytes": 1732,
+    "download_time": "2025-10-04T11:15:42.364956",
+    "status": "success"
+  },
+  {
+    "filename": "highway_funds.xml",
+    "url": "https://api.data.gov.in/resource/7cdf1f2e-1027-4e4a-82c7-eade79b36f53?api-key=579b464db66ec23bdd0000015d47c06aac71457962b63b9874ea490a&format=xml",
+    "size_bytes": 4403,
+    "download_time": "2025-10-04T11:15:43.066416",
+    "status": "success"
+  },
+  {
+    "filename": "highway_length.xml",
+    "url": "https://api.data.gov.in/resource/1e00ebf4-9008-4aef-b251-adc4b7537942?api-key=579b464db66ec23bdd0000015d47c06aac71457962b63b9874ea490a&format=xml",
+    "size_bytes": 2950,
+    "download_time": "2025-10-04T11:15:43.745000",
+    "status": "success"
+  }
+]
