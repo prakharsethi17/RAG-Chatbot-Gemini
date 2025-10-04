@@ -10,13 +10,23 @@ from pathlib import Path
 from datetime import datetime
 from typing import Dict, List, Tuple
 import time
+import os
+from dotenv import load_dotenv
+
+# Load environment variables
+env_path = Path(__file__).parent.parent.parent / '.env'
+load_dotenv(env_path)
+
+# Create logs directory if it doesn't exist
+log_dir = Path(__file__).parent.parent.parent / 'logs'
+log_dir.mkdir(parents=True, exist_ok=True)
 
 # Setup logging
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler('../logs/data_download.log'),
+        logging.FileHandler(log_dir / 'data_download.log'),
         logging.StreamHandler()
     ]
 )
@@ -26,10 +36,16 @@ logger = logging.getLogger(__name__)
 class DataDownloader:
     """Downloads datasets from various APIs with retry logic"""
 
-    def __init__(self, save_dir: str = "../data/raw"):
-        self.save_dir = Path(save_dir)
+    def __init__(self, save_dir: str = None):
+        if save_dir is None:
+            # Get the data/raw directory relative to this script
+            self.save_dir = Path(__file__).parent.parent.parent / 'data' / 'raw'
+        else:
+            self.save_dir = Path(save_dir)
+
         self.save_dir.mkdir(parents=True, exist_ok=True)
         self.download_metadata = []
+        logger.info(f"Initialized DataDownloader. Save directory: {self.save_dir}")
 
     def download_dataset(
         self, 
@@ -147,9 +163,20 @@ class DataDownloader:
 def main():
     """Main execution function"""
 
-    # Define datasets to download
-    API_KEY = "579b464db66ec23bdd0000015d47c06aac71457962b63b9874ea490a"
+    print("="*70)
+    print("LLM DOCUMENT Q&A PIPELINE - DATA DOWNLOADER")
+    print("="*70)
+    print()
 
+    # Get API key from environment variable
+    API_KEY = os.getenv('DATA_GOV_API_KEY')
+
+    if not API_KEY:
+        print("ERROR: DATA_GOV_API_KEY not found in .env file")
+        print("Please add DATA_GOV_API_KEY to your .env file")
+        return
+
+    # Define datasets to download
     datasets = [
         {
             'url': f'https://api.data.gov.in/resource/c1ec0057-7de4-4669-8d97-f72b01846d83?api-key={API_KEY}&format=csv',
@@ -168,6 +195,12 @@ def main():
         }
     ]
 
+    # Print dataset information
+    print("📊 Datasets to download:")
+    for i, dataset in enumerate(datasets, 1):
+        print(f"  {i}. {dataset['filename']:<25} - {dataset['description']}")
+    print()
+
     # Initialize downloader
     downloader = DataDownloader()
 
@@ -175,19 +208,30 @@ def main():
     results = downloader.download_all_datasets(datasets)
 
     # Print summary
-    print("\n" + "="*70)
+    print()
+    print("="*70)
     print("DOWNLOAD SUMMARY")
     print("="*70)
     print(f"Total Datasets: {results['total']}")
     print(f"✓ Successful: {results['successful']}")
     print(f"✗ Failed: {results['failed']}")
-    print("\n" + "-"*70)
+    print()
+    print("-"*70)
 
     for detail in results['details']:
         status = "✓" if detail['success'] else "✗"
-        print(f"{status} {detail['filename']}: {detail['message']}")
+        print(f"{status} {detail['filename']:<25} - {detail['message']}")
 
     print("="*70)
+    print()
+
+    if results['successful'] == results['total']:
+        print("🎉 All datasets downloaded successfully!")
+        print(f"📁 Files saved to: {downloader.save_dir}")
+        print("✅ Ready for Step 2: Data Processing")
+    else:
+        print("⚠️  Some downloads failed. Check logs for details.")
+        print(f"📝 Log file: {log_dir / 'data_download.log'}")
 
 
 if __name__ == "__main__":

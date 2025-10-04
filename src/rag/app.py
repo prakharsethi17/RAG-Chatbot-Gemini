@@ -55,6 +55,53 @@ def load_rag_chain():
         return None
 
 
+def process_query(query, rag, top_k, filter_metadata):
+    """Process a query and display results"""
+    # Add user message to chat
+    st.session_state.messages.append({"role": "user", "content": query})
+
+    with st.chat_message("user"):
+        st.markdown(query)
+
+    # Generate response
+    with st.chat_message("assistant"):
+        with st.spinner("Searching and generating answer..."):
+            if rag is None:
+                st.error("RAG system not initialized. Please check the logs.")
+                return
+
+            # Generate answer
+            result = rag.generate_answer(
+                query, 
+                top_k=top_k,
+                filter_metadata=filter_metadata if filter_metadata else None
+            )
+
+            # Display answer
+            st.markdown(result['answer'])
+
+            # Display sources
+            if result['sources']:
+                with st.expander("📚 View Sources", expanded=False):
+                    for i, source in enumerate(result['sources'], 1):
+                        st.markdown(f"""
+                        <div class="source-box">
+                        <strong>Source {i}:</strong><br>
+                        <strong>File:</strong> {source['source']}<br>
+                        <strong>State:</strong> {source['state']}<br>
+                        <strong>Type:</strong> {source['type']}<br>
+                        <strong>Preview:</strong> {source['content_preview']}
+                        </div>
+                        """, unsafe_allow_html=True)
+
+            # Add assistant message to chat
+            st.session_state.messages.append({
+                "role": "assistant", 
+                "content": result['answer'],
+                "sources": result['sources']
+            })
+
+
 def main():
     # Header
     st.markdown('<h1 class="main-header">🤖 LLM Document Q&A System</h1>', unsafe_allow_html=True)
@@ -118,10 +165,19 @@ def main():
         except:
             pass
 
-    # Main content
-    # Initialize session state for chat history
+    # Initialize session state
     if 'messages' not in st.session_state:
         st.session_state.messages = []
+
+    # Load RAG chain
+    rag = load_rag_chain()
+
+    # Build filter metadata
+    filter_metadata = {}
+    if filter_state != "All States":
+        filter_metadata['state'] = filter_state
+    if filter_type != "All Types":
+        filter_metadata['type'] = filter_type
 
     # Display chat history
     for message in st.session_state.messages:
@@ -142,81 +198,34 @@ def main():
 
     # Chat input
     if query := st.chat_input("Ask a question about the data..."):
-        # Add user message to chat
-        st.session_state.messages.append({"role": "user", "content": query})
+        process_query(query, rag, top_k, filter_metadata)
 
-        with st.chat_message("user"):
-            st.markdown(query)
-
-        # Generate response
-        with st.chat_message("assistant"):
-            with st.spinner("Searching and generating answer..."):
-                rag = load_rag_chain()
-
-                if rag is None:
-                    st.error("RAG system not initialized. Please check the logs.")
-                    return
-
-                # Build filter metadata
-                filter_metadata = {}
-                if filter_state != "All States":
-                    filter_metadata['state'] = filter_state
-                if filter_type != "All Types":
-                    filter_metadata['type'] = filter_type
-
-                # Generate answer
-                result = rag.generate_answer(
-                    query, 
-                    top_k=top_k,
-                    filter_metadata=filter_metadata if filter_metadata else None
-                )
-
-                # Display answer
-                st.markdown(result['answer'])
-
-                # Display sources
-                if result['sources']:
-                    with st.expander("📚 View Sources", expanded=False):
-                        for i, source in enumerate(result['sources'], 1):
-                            st.markdown(f"""
-                            <div class="source-box">
-                            <strong>Source {i}:</strong><br>
-                            <strong>File:</strong> {source['source']}<br>
-                            <strong>State:</strong> {source['state']}<br>
-                            <strong>Type:</strong> {source['type']}<br>
-                            <strong>Preview:</strong> {source['content_preview']}
-                            </div>
-                            """, unsafe_allow_html=True)
-
-                # Add assistant message to chat
-                st.session_state.messages.append({
-                    "role": "assistant", 
-                    "content": result['answer'],
-                    "sources": result['sources']
-                })
-
-    # Sample questions
+    # Sample questions (only show when no messages)
     if not st.session_state.messages:
         st.markdown("### 💡 Try these sample questions:")
 
         col1, col2 = st.columns(2)
 
         with col1:
-            if st.button("🌳 Which state has the highest plantation?"):
-                st.session_state.query = "Which state has the highest plantation progress from 2015 to 2024?"
+            if st.button("🌳 Which state has the highest plantation?", key="q1"):
+                query = "Which state has the highest plantation progress from 2015 to 2024?"
+                process_query(query, rag, top_k, filter_metadata)
                 st.rerun()
 
-            if st.button("📊 Compare Delhi and Haryana plantations"):
-                st.session_state.query = "Compare plantation progress between Delhi and Haryana"
+            if st.button("📊 Compare Delhi and Haryana plantations", key="q2"):
+                query = "Compare plantation progress between Delhi and Haryana"
+                process_query(query, rag, top_k, filter_metadata)
                 st.rerun()
 
         with col2:
-            if st.button("🛣️ Tell me about highway funds"):
-                st.session_state.query = "What information is available about highway funds allocation?"
+            if st.button("🛣️ Tell me about highway funds", key="q3"):
+                query = "What information is available about highway funds allocation?"
+                process_query(query, rag, top_k, filter_metadata)
                 st.rerun()
 
-            if st.button("📈 Plantation trends over years"):
-                st.session_state.query = "What are the plantation trends from 2015 to 2024?"
+            if st.button("📈 Plantation trends over years", key="q4"):
+                query = "What are the plantation trends from 2015 to 2024?"
+                process_query(query, rag, top_k, filter_metadata)
                 st.rerun()
 
     # Clear chat button

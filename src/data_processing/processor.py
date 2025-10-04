@@ -7,6 +7,7 @@ import pandas as pd
 import xml.etree.ElementTree as ET
 import json
 import logging
+import sys
 from pathlib import Path
 from datetime import datetime
 from typing import List, Dict, Any
@@ -21,11 +22,15 @@ logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler(log_dir / 'data_processing.log'),
-        logging.StreamHandler()
+        logging.FileHandler(log_dir / 'data_processing.log', encoding='utf-8'),
+        logging.StreamHandler(sys.stdout)
     ]
 )
 logger = logging.getLogger(__name__)
+
+# Force UTF-8 on Windows
+if sys.platform == 'win32':
+    sys.stdout.reconfigure(encoding='utf-8')
 
 
 class DataProcessor:
@@ -121,7 +126,7 @@ class DataProcessor:
                 documents.append(doc)
                 logger.debug(f"Processed document for state: {state}")
 
-            logger.info(f"✓ Created {len(documents)} documents from CSV")
+            logger.info(f"[OK] Created {len(documents)} documents from CSV")
             return documents
 
         except Exception as e:
@@ -129,7 +134,7 @@ class DataProcessor:
             return []
 
     def process_xml_highway_funds(self) -> List[Dict[str, Any]]:
-        """Process highway funds XML"""
+        """Process highway funds XML - FIXED VERSION"""
         logger.info("Processing highway_funds.xml...")
 
         xml_file = self.raw_data_dir / 'highway_funds.xml'
@@ -141,49 +146,58 @@ class DataProcessor:
             tree = ET.parse(xml_file)
             root = tree.getroot()
 
-            # Get title and description
-            title = root.find('title')
-            title_text = title.text if title is not None else "Highway Funds Data"
+            # Get title
+            title_elem = root.find('title')
+            title_text = title_elem.text if title_elem is not None else "Highway Funds Data"
 
             documents = []
 
-            # Find all records
-            records = root.findall('.//record')
-            logger.info(f"Found {len(records)} records in XML")
+            # Find the records element
+            records = root.find('records')
+            if records is not None:
+                items = records.findall('item')
+                logger.info(f"Found {len(items)} items in XML")
 
-            for record in records:
-                text_parts = [f"National Highway Funds Information: {title_text}"]
-                metadata = {
-                    'source': 'highway_funds.xml',
-                    'type': 'highway_funds',
-                    'processed_date': datetime.now().isoformat()
-                }
+                for item in items:
+                    text_parts = [f"National Highway Funds Information: {title_text}"]
 
-                # Extract all fields from record
-                for field in record:
-                    field_name = field.tag
-                    field_value = field.text if field.text else ""
+                    # Extract state
+                    state_elem = item.find('state_ut')
+                    state = state_elem.text if state_elem is not None else "N/A"
 
-                    if field_value and field_value.strip():
-                        # Clean field name for readability
-                        readable_name = field_name.replace('_', ' ').title()
-                        text_parts.append(f"{readable_name}: {field_value}")
+                    # Get all fields
+                    alloc_2023_24 = item.find('_2023_24___allocated')
+                    exp_2023_24 = item.find('_2023_24___expenditure')
+                    alloc_2024_25 = item.find('_2024_25___allocated')
+                    exp_2024_25 = item.find('_2024_25___expenditure')
 
-                        # Store state in metadata if present
-                        if 'state' in field_name.lower() or 'ut' in field_name.lower():
-                            metadata['state'] = field_value
+                    text_parts.append(f"State/UT: {state}")
 
-                text = '. '.join(text_parts) + '.'
-                text = self.clean_text(text)
+                    if alloc_2023_24 is not None:
+                        text_parts.append(f"Allocated budget for 2023-24: Rs {alloc_2023_24.text} Crore")
+                    if exp_2023_24 is not None:
+                        text_parts.append(f"Expenditure for 2023-24: Rs {exp_2023_24.text} Crore")
+                    if alloc_2024_25 is not None:
+                        text_parts.append(f"Allocated budget for 2024-25: Rs {alloc_2024_25.text} Crore")
+                    if exp_2024_25 is not None:
+                        text_parts.append(f"Expenditure for 2024-25: Rs {exp_2024_25.text} Crore")
 
-                doc = {
-                    'content': text,
-                    'metadata': metadata
-                }
+                    text = '. '.join(text_parts) + '.'
+                    text = self.clean_text(text)
 
-                documents.append(doc)
+                    doc = {
+                        'content': text,
+                        'metadata': {
+                            'source': 'highway_funds.xml',
+                            'state': state,
+                            'type': 'highway_funds',
+                            'processed_date': datetime.now().isoformat()
+                        }
+                    }
 
-            logger.info(f"✓ Created {len(documents)} documents from highway_funds.xml")
+                    documents.append(doc)
+
+            logger.info(f"[OK] Created {len(documents)} documents from highway_funds.xml")
             return documents
 
         except Exception as e:
@@ -191,7 +205,7 @@ class DataProcessor:
             return []
 
     def process_xml_highway_length(self) -> List[Dict[str, Any]]:
-        """Process highway length XML"""
+        """Process highway length XML - FIXED VERSION"""
         logger.info("Processing highway_length.xml...")
 
         xml_file = self.raw_data_dir / 'highway_length.xml'
@@ -204,46 +218,47 @@ class DataProcessor:
             root = tree.getroot()
 
             # Get title
-            title = root.find('title')
-            title_text = title.text if title is not None else "Highway Length Data"
+            title_elem = root.find('title')
+            title_text = title_elem.text if title_elem is not None else "Highway Length Data"
 
             documents = []
 
-            # Find all records
-            records = root.findall('.//record')
-            logger.info(f"Found {len(records)} records in XML")
+            # Find the records element
+            records = root.find('records')
+            if records is not None:
+                items = records.findall('item')
+                logger.info(f"Found {len(items)} items in XML")
 
-            for record in records:
-                text_parts = [f"National Highway Length Information: {title_text}"]
-                metadata = {
-                    'source': 'highway_length.xml',
-                    'type': 'highway_length',
-                    'processed_date': datetime.now().isoformat()
-                }
+                for item in items:
+                    text_parts = [f"National Highway Length Information: {title_text}"]
 
-                # Extract all fields
-                for field in record:
-                    field_name = field.tag
-                    field_value = field.text if field.text else ""
+                    # Extract state
+                    state_elem = item.find('state__ut')
+                    state = state_elem.text if state_elem is not None else "N/A"
 
-                    if field_value and field_value.strip():
-                        readable_name = field_name.replace('_', ' ').title()
-                        text_parts.append(f"{readable_name}: {field_value}")
+                    # Get length
+                    length_elem = item.find('existing_nh_length__in_km__as_on_30_06_2024')
+                    length = length_elem.text if length_elem is not None else "N/A"
 
-                        if 'state' in field_name.lower() or 'ut' in field_name.lower():
-                            metadata['state'] = field_value
+                    text_parts.append(f"State/UT: {state}")
+                    text_parts.append(f"Existing National Highway length as of June 30, 2024: {length} kilometers")
 
-                text = '. '.join(text_parts) + '.'
-                text = self.clean_text(text)
+                    text = '. '.join(text_parts) + '.'
+                    text = self.clean_text(text)
 
-                doc = {
-                    'content': text,
-                    'metadata': metadata
-                }
+                    doc = {
+                        'content': text,
+                        'metadata': {
+                            'source': 'highway_length.xml',
+                            'state': state,
+                            'type': 'highway_length',
+                            'processed_date': datetime.now().isoformat()
+                        }
+                    }
 
-                documents.append(doc)
+                    documents.append(doc)
 
-            logger.info(f"✓ Created {len(documents)} documents from highway_length.xml")
+            logger.info(f"[OK] Created {len(documents)} documents from highway_length.xml")
             return documents
 
         except Exception as e:
@@ -302,7 +317,7 @@ def main():
     """Main execution function"""
 
     print("="*70)
-    print("LLM DOCUMENT Q&A PIPELINE - DATA PROCESSOR")
+    print("LLM DOCUMENT Q&A PIPELINE - DATA PROCESSOR (UPDATED)")
     print("="*70)
     print()
 
@@ -321,19 +336,19 @@ def main():
     print()
     print("Documents by Source:")
     for source, count in results['by_source'].items():
-        print(f"  ✓ {source:<30} {count:>3} documents")
+        print(f"  [OK] {source:<30} {count:>3} documents")
     print()
     print(f"Processing Time: {results['processing_time']}")
     print("="*70)
     print()
 
     if results['total_documents'] > 0:
-        print("🎉 Data processing completed successfully!")
-        print(f"📁 Processed files saved to: {processor.processed_data_dir}")
-        print("✅ Ready for Step 3: Embedding Generation")
+        print("SUCCESS: Data processing completed!")
+        print(f"Files saved to: {processor.processed_data_dir}")
+        print("Ready for Step 3: Embedding Generation")
     else:
-        print("⚠️  No documents were processed. Check logs for details.")
-        print(f"📝 Log file: {log_dir / 'data_processing.log'}")
+        print("WARNING: No documents were processed. Check logs for details.")
+        print(f"Log file: {log_dir / 'data_processing.log'}")
 
     print()
 
